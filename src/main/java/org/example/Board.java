@@ -13,6 +13,14 @@ public class Board {
         pieces.put(coardinates, piece);
     }
 
+    public boolean isSquareEmpty(Coardinates coardinates){
+        return !pieces.containsKey(coardinates);
+    }
+
+    public Piece getPiece(Coardinates coardinates){
+        return pieces.get(coardinates);
+    }
+
     public void setupDefaultPiecesPositions(){
         for (File file : File.values()){
             setPiece(new Coardinates(file,2), new Pawn(Color.WHITE,new Coardinates(file,2)));
