@@ -52,7 +52,26 @@ public class BoardConsoleRenderer {
     }
 
     private String getPieceSprite(Piece piece) {
-        return colorizeSprite(" A ", piece.color, Board.isSquareDark(piece.coardinates));
+        return colorizeSprite(" " + selectUnicodeSpriteForPiece(piece) + " ",
+                piece.color, Board.isSquareDark(piece.coardinates));
+    }
+
+    private String selectUnicodeSpriteForPiece(Piece piece){
+        switch (piece.getClass().getSimpleName()){
+            case "Pawn":
+                return "♟";
+            case "Knight":
+                return "♞";
+            case "Bishop":
+                return "♝";
+            case "Rook":
+                return "♜";
+            case "Queen":
+                return "♛";
+            case "King":
+                return "♚";
+        }
+        return "";
     }
 
     private  String getSpriteForEmptySquare(Coardinates coardinates){
